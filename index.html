@@ -29,54 +29,52 @@
 
       .container {
         max-width: 760px;
-        margin: 40px auto;
-        padding: 0 20px 40px;
+        margin: 24px auto;
+        padding: 0 20px 24px;
       }
 
       .card {
         background: var(--card);
         border: 1px solid var(--border);
         border-radius: 16px;
-        padding: 28px;
+        padding: 24px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
       }
 
       h1,
       h2,
-      h3,
       p {
-        margin: 0 0 16px;
+        margin: 0 0 14px;
       }
 
       h1 {
-        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+        font-size: clamp(1.7rem, 3.2vw, 2.2rem);
         line-height: 1.3;
-        margin-bottom: 8px;
       }
 
       h2 {
-        font-size: 1.25rem;
-        margin-top: 24px;
+        font-size: 1.2rem;
+        margin-top: 18px;
       }
 
-      .divider {
-        border: 0;
-        border-top: 1px solid var(--border);
-        margin: 22px 0;
-      }
 
-      .muted {
-        color: var(--muted);
+      .lead-box {
+        margin: 18px 0;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fafbf9;
       }
 
       ul {
-        margin: 0 0 16px;
+        margin: 0;
         padding-inline-start: 20px;
       }
 
       form {
         display: grid;
-        gap: 14px;
+        gap: 12px;
+        margin-top: 8px;
       }
 
       label {
@@ -116,7 +114,7 @@
 
       .thank-you {
         display: none;
-        margin-top: 14px;
+        margin-top: 12px;
         padding: 12px 14px;
         border-radius: 10px;
         background: #ecf7ef;
@@ -124,84 +122,58 @@
         color: #1f5e39;
         font-weight: 500;
       }
+
+      .closing {
+        margin-top: 18px;
+      }
     </style>
   </head>
   <body>
     <main class="container">
       <section class="card">
-        <p class="muted">דף נחיתה – הרשמה לשיחת ייעוץ</p>
-
-        <h1>סיימת את האתגר!<br />כל הכבוד לך 🌿</h1>
-
-        <hr class="divider" />
-
-        <h2>אם הרגשת שזה נגע בך,</h2>
+        <h1>סיימת את האתגר! כל הכבוד לך 🌿</h1>
         <p>
-          ויכול להיות משמעותי עבורך להמשיך —<br />אני מזמינה אותך לצעד הבא.
+          אם הרגשת שזה נגע בך ורלוונטי עבורך — אני מזמינה אותך לשיחת ייעוץ
+          אישית של 20 דקות.
         </p>
 
-        <hr class="divider" />
+        <div class="lead-box">
+          <h2>השאירי פרטים כאן ואחזור אלייך לתיאום:</h2>
 
-        <p>
-          בחמשת הימים האחרונים התחלת להכיר את הקול הביקורתי שלך קצת אחרת.<br />
-          אולי שמת לב:<br />
-          מה האופן הייחודי בו הוא מתבטא אצלך וכיצד משפיע עלייך<br />
-          מה הכוונות שלו ומה הוא רוצה עבורך<br />
-          והתחלת לגלות שגם יש אפשרות לתת לו קונטרה...<br />
-          מה שבטוח זה שתהליך אמיתי קורה כשמעמיקים
-          ומטמיעים בתוכנו דפוס חדש שמייצר שינוי לאורך זמן.
-        </p>
+          <form id="leadForm">
+            <div>
+              <label for="fullName">שם מלא</label>
+              <input id="fullName" name="fullName" type="text" required />
+            </div>
 
-        <hr class="divider" />
+            <div>
+              <label for="phone">טלפון</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
 
-        <h2>אני מזמינה אותך לשיחת ייעוץ אישית (20 דקות),</h2>
-        <p>שבה נבדוק יחד:</p>
+            <div>
+              <label for="email">מייל</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <button type="submit">לקביעת שיחת ייעוץ</button>
+          </form>
+
+          <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
+            תודה רבה שהשארת פרטים 💚 קיבלתי את הפנייה שלך ואצור איתך קשר בימים
+            הקרובים לתיאום שיחת הייעוץ.
+          </p>
+        </div>
+
+        <h2>בשיחה נבדוק יחד:</h2>
         <ul>
-          <li>איפה הקול הביקורתי שלך הכי משפיע עלייך היום</li>
-          <li>מה את רוצה להתחיל לשנות או לקדם</li>
-          <li>והאם ליווי אישי יכול להתאים לך בשלב הזה</li>
+          <li>איפה הקול הביקורתי הכי משפיע עלייך כרגע</li>
+          <li>מה את רוצה לשנות או לקדם בתקופה הקרובה</li>
+          <li>האם ליווי אישי יכול להתאים לך בשלב הזה</li>
         </ul>
-        <p>
-          זו שיחה שמטרתה לבדוק התאמה —<br />גם עבורך וגם עבורי,<br />
-          ולראות אם אני יכולה לעזור לך בתהליך הזה.
-        </p>
 
-        <hr class="divider" />
-
-        <h2>מלאי את הפרטים כאן למטה</h2>
-        <p>ואחזור אלייך לתיאום השיחה:</p>
-
-        <form id="leadForm">
-          <div>
-            <label for="fullName">שם מלא</label>
-            <input id="fullName" name="fullName" type="text" required />
-          </div>
-
-          <div>
-            <label for="phone">טלפון</label>
-            <input id="phone" name="phone" type="tel" required />
-          </div>
-
-          <div>
-            <label for="email">מייל</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-
-          <button type="submit">לקביעת שיחת ייעוץ</button>
-        </form>
-
-        <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
-          תודה רבה שהשארת פרטים 💚 קיבלתי את הפנייה שלך ואצור איתך קשר בימים
-          הקרובים לתיאום שיחת הייעוץ.
-        </p>
-
-        <hr class="divider" />
-
-        <p>
-          לפעמים כל מה שצריך<br />
-          זה מרחב נכון כדי להתחיל לעבוד אחרת עם עצמך.<br />
-          אם תרגישי שזה נכון עבורך,<br />
-          אשמח לבדוק יחד האם אני האדם הנכון ללוות אותך בתהליך הזה.
+        <p class="closing">
+          זו שיחת התאמה קצרה שנועדה לדייק עבורך את הצעד הבא.
         </p>
       </section>
     </main>
