@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>דף נחיתה – הרשמה לשיחת ייעוץ</title>
+    <style>
+      :root {
+        --bg: #f8f7f3;
+        --card: #ffffff;
+        --text: #2f2f2f;
+        --muted: #666;
+        --accent: #4a7f63;
+        --accent-hover: #3a6952;
+        --border: #e2e2e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Heebo", Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 0 20px 40px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0 0 16px;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        margin-top: 24px;
+      }
+
+      .divider {
+        border: 0;
+        border-top: 1px solid var(--border);
+        margin: 22px 0;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 0 0 16px;
+        padding-inline-start: 20px;
+      }
+
+      form {
+        display: grid;
+        gap: 14px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid #cfcfcf;
+        font-size: 1rem;
+      }
+
+      input:focus {
+        outline: 2px solid rgba(74, 127, 99, 0.25);
+        border-color: var(--accent);
+      }
+
+      button {
+        border: 0;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px 16px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      button:hover {
+        background: var(--accent-hover);
+      }
+
+      .thank-you {
+        display: none;
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #ecf7ef;
+        border: 1px solid #cde6d4;
+        color: #1f5e39;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <p class="muted">דף נחיתה – הרשמה לשיחת ייעוץ</p>
+
+        <h1>סיימת את האתגר!<br />כל הכבוד לך 🌿</h1>
+
+        <hr class="divider" />
+
+        <h2>אם הרגשת שזה נגע בך,</h2>
+        <p>
+          ויכול להיות משמעותי עבורך להמשיך —<br />אני מזמינה אותך לצעד הבא.
+        </p>
+
+        <hr class="divider" />
+
+        <p>
+          בחמשת הימים האחרונים התחלת להכיר את הקול הביקורתי שלך קצת אחרת.<br />
+          אולי שמת לב:<br />
+          מה האופן הייחודי בו הוא מתבטא אצלך וכיצד משפיע עלייך<br />
+          מה הכוונות שלו ומה הוא רוצה עבורך<br />
+          והתחלת לגלות שגם יש אפשרות לתת לו קונטרה...<br />
+          מה שבטוח זה שתהליך אמיתי קורה כשמעמיקים
+          ומטמיעים בתוכנו דפוס חדש שמייצר שינוי לאורך זמן.
+        </p>
+
+        <hr class="divider" />
+
+        <h2>אני מזמינה אותך לשיחת ייעוץ אישית (20 דקות),</h2>
+        <p>שבה נבדוק יחד:</p>
+        <ul>
+          <li>איפה הקול הביקורתי שלך הכי משפיע עלייך היום</li>
+          <li>מה את רוצה להתחיל לשנות או לקדם</li>
+          <li>והאם ליווי אישי יכול להתאים לך בשלב הזה</li>
+        </ul>
+        <p>
+          זו שיחה שמטרתה לבדוק התאמה —<br />גם עבורך וגם עבורי,<br />
+          ולראות אם אני יכולה לעזור לך בתהליך הזה.
+        </p>
+
+        <hr class="divider" />
+
+        <h2>מלאי את הפרטים כאן למטה</h2>
+        <p>ואחזור אלייך לתיאום השיחה:</p>
+
+        <form id="leadForm">
+          <div>
+            <label for="fullName">שם מלא</label>
+            <input id="fullName" name="fullName" type="text" required />
+          </div>
+
+          <div>
+            <label for="phone">טלפון</label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+
+          <div>
+            <label for="email">מייל</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <button type="submit">לקביעת שיחת ייעוץ</button>
+        </form>
+
+        <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
+          תודה רבה שהשארת פרטים 💚 קיבלתי את הפנייה שלך ואצור איתך קשר בימים
+          הקרובים לתיאום שיחת הייעוץ.
+        </p>
+
+        <hr class="divider" />
+
+        <p>
+          לפעמים כל מה שצריך<br />
+          זה מרחב נכון כדי להתחיל לעבוד אחרת עם עצמך.<br />
+          אם תרגישי שזה נכון עבורך,<br />
+          אשמח לבדוק יחד האם אני האדם הנכון ללוות אותך בתהליך הזה.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("leadForm");
+      const thankYouMessage = document.getElementById("thankYouMessage");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        form.reset();
+        thankYouMessage.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
