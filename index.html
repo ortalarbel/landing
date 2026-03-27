@@ -13,6 +13,8 @@
         --accent: #4a7f63;
         --accent-hover: #3a6952;
         --border: #e2e2e2;
+        --mustard: #c8a24a;
+        --mustard-soft: #f5edd8;
       }
 
       * {
@@ -23,7 +25,7 @@
         margin: 0;
         font-family: "Heebo", Arial, sans-serif;
         color: var(--text);
-        background: var(--bg);
+        background: linear-gradient(180deg, var(--mustard-soft) 0%, var(--bg) 180px);
         line-height: 1.7;
       }
 
@@ -65,9 +67,9 @@
       .lead-box {
         margin: 18px 0;
         padding: 16px;
-        border: 1px solid var(--border);
+        border: 1px solid #e9d7aa;
         border-radius: 12px;
-        background: #fafbf9;
+        background: #fffef9;
       }
 
       ul {
@@ -135,6 +137,24 @@
       .hero-text {
         text-align: center;
       }
+
+      .conversation-check {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid #ead9ad;
+        background: var(--mustard-soft);
+        text-align: center;
+      }
+
+      .conversation-check h2 {
+        margin-top: 0;
+      }
+
+      .conversation-check ul {
+        display: inline-block;
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -174,12 +194,14 @@
           </p>
         </div>
 
-        <h2>בשיחה נבדוק יחד:</h2>
-        <ul>
-          <li>איפה הקול הביקורתי הכי משפיע עלייך כרגע</li>
-          <li>מה את רוצה לשנות או לקדם בתקופה הקרובה</li>
-          <li>האם ליווי אישי יכול להתאים לך בשלב הזה</li>
-        </ul>
+        <section class="conversation-check">
+          <h2>בשיחה נבדוק יחד:</h2>
+          <ul>
+            <li>איפה הקול הביקורתי הכי משפיע עלייך כרגע</li>
+            <li>מה את רוצה לשנות או לקדם בתקופה הקרובה</li>
+            <li>האם ליווי אישי יכול להתאים לך בשלב הזה</li>
+          </ul>
+        </section>
 
         <p class="closing">
           זו שיחת התאמה קצרה שנועדה לדייק עבורך את הצעד הבא.
