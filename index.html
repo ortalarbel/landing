@@ -169,20 +169,25 @@
         <div class="lead-box">
           <h2>השאירי פרטים כאן ואחזור אלייך לתיאום:</h2>
 
-          <form id="leadForm">
+          <form
+            id="leadForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfY1roD4gB0LbPzZKAZLtl6LDsy78jkyHnvf-i16n9mEIGEZw/formResponse"
+            method="POST"
+            target="hidden_iframe"
+          >
             <div>
               <label for="fullName">שם מלא</label>
-              <input id="fullName" name="fullName" type="text" required />
+              <input id="fullName" name="entry.2022435461" type="text" required />
             </div>
 
             <div>
               <label for="phone">טלפון</label>
-              <input id="phone" name="phone" type="tel" required />
+              <input id="phone" name="entry.802263331" type="tel" required />
             </div>
 
             <div>
               <label for="email">מייל</label>
-              <input id="email" name="email" type="email" required />
+              <input id="email" name="entry.131890125" type="email" required />
             </div>
 
             <button type="submit">לקביעת שיחת ייעוץ</button>
@@ -192,6 +197,7 @@
             תודה רבה שהשארת פרטים 💚 קיבלתי את הפנייה שלך ואצור איתך קשר בימים
             הקרובים לתיאום שיחת הייעוץ.
           </p>
+          <iframe name="hidden_iframe" style="display: none" title="hidden-form-target"></iframe>
         </div>
 
         <section class="conversation-check">
@@ -212,9 +218,21 @@
     <script>
       const form = document.getElementById("leadForm");
       const thankYouMessage = document.getElementById("thankYouMessage");
+      const iframeTarget = document.querySelector('iframe[name="hidden_iframe"]');
+      let isSubmitting = false;
 
       form.addEventListener("submit", (event) => {
-        event.preventDefault();
+        if (!form.checkValidity()) {
+          return;
+        }
+        isSubmitting = true;
+      });
+
+      iframeTarget.addEventListener("load", () => {
+        if (!isSubmitting) {
+          return;
+        }
+        isSubmitting = false;
         form.reset();
         thankYouMessage.style.display = "block";
       });
