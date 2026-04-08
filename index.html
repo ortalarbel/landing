@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>דף נחיתה – הרשמה לשיחת ייעוץ</title>
+    <title>אורטל ארבל | להפוך את הקול הביקורתי לקול שמקדם אותך</title>
     <style>
       :root {
-        --bg: #f8f7f3;
+        --bg: #f9f6f2;
         --card: #ffffff;
-        --text: #2f2f2f;
-        --muted: #666;
-        --accent: #4a7f63;
-        --accent-hover: #3a6952;
-        --border: #e2e2e2;
-        --mustard: #c8a24a;
-        --mustard-soft: #f5edd8;
+        --text: #2f2f33;
+        --muted: #6f6b69;
+        --accent: #4e7a68;
+        --accent-hover: #3f6656;
+        --soft: #fdf8ef;
+        --border: #e8ddd0;
+        --blush: #f7ede6;
       }
 
       * {
@@ -25,51 +25,111 @@
         margin: 0;
         font-family: "Heebo", Arial, sans-serif;
         color: var(--text);
-        background: linear-gradient(180deg, var(--mustard-soft) 0%, var(--bg) 180px);
-        line-height: 1.7;
+        line-height: 1.75;
+        background: linear-gradient(180deg, #f4ebdf 0%, var(--bg) 240px);
       }
 
       .container {
-        max-width: 760px;
-        margin: 24px auto;
-        padding: 0 20px 24px;
+        max-width: 980px;
+        margin: 28px auto;
+        padding: 0 18px 32px;
       }
 
       .card {
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: clamp(20px, 4vw, 40px);
+        box-shadow: 0 10px 28px rgba(73, 60, 42, 0.08);
       }
 
       h1,
       h2,
+      h3,
       p {
         margin: 0 0 14px;
       }
 
       h1 {
-        font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
         line-height: 1.3;
-        text-align: center;
       }
 
       h2 {
-        font-size: 1.2rem;
-        margin-top: 18px;
+        font-size: clamp(1.35rem, 3vw, 1.75rem);
+        margin-top: 10px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
       }
 
       .muted {
         color: var(--muted);
       }
 
-      .lead-box {
-        margin: 18px 0;
+      .hero {
+        text-align: center;
+        padding-bottom: 24px;
+        border-bottom: 1px dashed var(--border);
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: var(--soft);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 14px;
+        margin-bottom: 14px;
+        font-size: 0.95rem;
+      }
+
+      .hero p {
+        max-width: 700px;
+        margin: 0 auto 16px;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        transition: background 0.2s;
+      }
+
+      .hero-cta:hover {
+        background: var(--accent-hover);
+      }
+
+      .section {
+        margin-top: 28px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .box {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
         padding: 16px;
-        border: 1px solid #e9d7aa;
-        border-radius: 12px;
-        background: #fffef9;
+      }
+
+      .box.soft {
+        background: var(--soft);
+      }
+
+      .box.blush {
+        background: var(--blush);
       }
 
       ul {
@@ -77,28 +137,40 @@
         padding-inline-start: 20px;
       }
 
+      li {
+        margin-bottom: 8px;
+      }
+
+      .about {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #fffdfa;
+        padding: 16px;
+      }
+
       form {
         display: grid;
         gap: 12px;
-        margin-top: 8px;
+        margin-top: 14px;
       }
 
       label {
         display: block;
         font-weight: 600;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
       }
 
       input {
         width: 100%;
         padding: 12px 14px;
         border-radius: 10px;
-        border: 1px solid #cfcfcf;
+        border: 1px solid #d4cec6;
         font-size: 1rem;
+        background: #fff;
       }
 
       input:focus {
-        outline: 2px solid rgba(74, 127, 99, 0.25);
+        outline: 2px solid rgba(78, 122, 104, 0.25);
         border-color: var(--accent);
       }
 
@@ -130,44 +202,128 @@
       }
 
       .closing {
-        margin-top: 18px;
+        margin-top: 22px;
         text-align: center;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .conversation-check {
-        margin-top: 18px;
-        padding: 16px;
-        border-radius: 12px;
-        border: 1px solid #ead9ad;
-        background: var(--mustard-soft);
-        text-align: center;
-      }
-
-      .conversation-check h2 {
-        margin-top: 0;
-      }
-
-      .conversation-check ul {
-        display: inline-block;
-        text-align: right;
+        font-weight: 500;
       }
     </style>
   </head>
   <body>
     <main class="container">
       <section class="card">
-        <h1>סיימת את האתגר! כל הכבוד לך 🌿</h1>
-        <p class="hero-text">
-          אם את מרגישה שהתחלת תהליך שהיית רוצה להמשיך להעמיק בו,<br />
-          אני מזמינה אותך לשיחת ייעוץ אישית של 20 דקות.
-        </p>
+        <header class="hero">
+          <span class="hero-badge">דף נחיתה לקורס הדיגיטלי של אורטל ארבל</span>
+          <h1>הקול הביקורתי לא חייב לנהל אותך.<br />אפשר להפוך אותו לקול שמחזיק אותך ברכות.</h1>
+          <p>
+            אם את יוצרת או יזמית שמרגישה שהפרפקציוניזם, הספק והביקורת הפנימית
+            שואבים ממך אנרגיה — הקורס הזה נבנה בדיוק בשבילך.
+          </p>
+          <p class="muted">
+            כאן לא עובדות עם לחץ והפחדה. כאן לומדות לנוע בקצב נכון, להתחבר לעצמך,
+            וליצור מתוך חום, אמפתיה וביטחון.
+          </p>
+          <a href="#join" class="hero-cta">אני רוצה פרטים על ההרשמה לקורס</a>
+        </header>
 
-        <div class="lead-box">
-          <h2>השאירי פרטים כאן ואחזור אלייך לתיאום:</h2>
+        <section class="section">
+          <h2>מה קורה לרבות מאיתנו היום?</h2>
+          <div class="grid grid-2">
+            <article class="box">
+              <h3>עומס פנימי שמתיש</h3>
+              <ul>
+                <li>הרבה סטרס והשקעת יתר מתוך רצון שהכול יהיה "מושלם".</li>
+                <li>חוסר איזון בין עבודה, פנאי וחיים אישיים.</li>
+                <li>תחושת עייפות שמגיעה גם כשעובדות קשה מאוד.</li>
+              </ul>
+            </article>
+            <article class="box">
+              <h3>הימנעות או עשיית יתר</h3>
+              <ul>
+                <li>דחיינות והימנעות מחשש שזה "לא מספיק טוב".</li>
+                <li>חוסר ודאות לגבי איכות המוצר או היצירה.</li>
+                <li>קושי להתמיד לאורך זמן בדרך מיטיבה.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>ומה אנחנו יוצרות יחד בקורס?</h2>
+          <div class="grid grid-2">
+            <article class="box soft">
+              <h3>חיבור פנימי חדש</h3>
+              <ul>
+                <li>לזהות את הקול הביקורתי ולא להתבלבל בינו לבינך.</li>
+                <li>לבנות שיח פנימי רך, מכבד ומעודד.</li>
+                <li>לחזק תחושת ראויות ואמון בעצמך כיוצרת וכיזמית.</li>
+              </ul>
+            </article>
+            <article class="box soft">
+              <h3>עשייה אותנטית ויציבה</h3>
+              <ul>
+                <li>לעשות צעדים אמיצים בלי נוקשות עצמית.</li>
+                <li>לפעול מתוך מה שנכון לך — לא מתוך "מה צריך".</li>
+                <li>להפוך יצירה ועשייה למרחב שאפשר ליהנות בו.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>מה כולל המסלול איתי?</h2>
+          <div class="grid">
+            <article class="box blush">
+              <h3>שלב פרונט – כניסה רכה לתהליך</h3>
+              <ul>
+                <li>מדריך מתנה: 6 טיפים לעשייה שמקדמת אותך בהנאה.</li>
+                <li>אתגר וואטסאפ 4 ימים לפיתוח מודעות לקול הביקורתי.</li>
+                <li>וובינר העמקה: להבין את הקול, המחירים והרווחים שלו.</li>
+              </ul>
+            </article>
+            <article class="box">
+              <h3>מוצר ליבה – סדנה תהליכית (6–8 מפגשים)</h3>
+              <ul>
+                <li>עבודה עומק על מודעות, אותנטיות וחיבור לצרכים שלך.</li>
+                <li>תרגול מעשי לחיזוק קול בוגר אוהב לצד הקול הביקורתי.</li>
+                <li>קבוצת וואטסאפ לשיתופים, שאלות וחיזוקים.</li>
+                <li>בונוס לנרשמות הראשונות: פגישת 1:1 אישית איתי.</li>
+              </ul>
+            </article>
+            <article class="box">
+              <h3>ליווי פרימיום אישי</h3>
+              <ul>
+                <li>15 מפגשים אישיים – 5,250 ₪</li>
+                <li>5 מפגשים אישיים – 2,250 ₪</li>
+                <li>מפגש בודד (90 דק') – 600 ₪</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>קצת עליי</h2>
+          <div class="about">
+            <p>
+              אני אורטל ארבל, מאמנת להתפתחות אישית. שנים התנהלתי מתוך קול ביקורתי
+              חזק שניסה "לשמור עליי" אבל בפועל הרחיק אותי ממה שבאמת נכון לי.
+            </p>
+            <p>
+              מתוך הדרך האישית שלי — שכוללת בחירות אמיצות, יציאה ממסגרות שלא התאימו
+              לי, ופיתוח יכולת עמוקה לסמוך על עצמי — בניתי שיטה שמשלבת עבודה רגשית
+              פנימית עם כלים מעשיים לחיי היומיום.
+            </p>
+            <p class="muted">
+              הכשרות: אימון הוליסטי (רידמן), NLP-גשטאלט (גומא גבים), קונסטלציה
+              משפחתית, תואר ראשון בחינוך והוראת אמנות, ולימודי שמאניזם ורפואה קדומה.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="join">
+          <h2>רוצה לבדוק אם הקורס מתאים לך?</h2>
+          <p>
+            השאירי כאן פרטים ואחזור אלייך לשיחת התאמה אישית, נעימה וללא התחייבות.
+          </p>
 
           <form
             id="leadForm"
@@ -190,27 +346,17 @@
               <input id="email" name="entry.131890125" type="email" required />
             </div>
 
-            <button type="submit">לקביעת שיחת ייעוץ</button>
+            <button type="submit">כן, אני רוצה פרטים על הקורס</button>
           </form>
 
           <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
-            תודה רבה שהשארת פרטים 💚 קיבלתי את הפנייה שלך ואצור איתך קשר בימים
-            הקרובים לתיאום שיחת הייעוץ.
+            תודה אהובה 💚 קיבלתי את הפרטים שלך ואצור איתך קשר בקרוב.
           </p>
           <iframe name="hidden_iframe" style="display: none" title="hidden-form-target"></iframe>
-        </div>
-
-        <section class="conversation-check">
-          <h2>בשיחה נבדוק יחד:</h2>
-          <ul>
-            <li>איפה הקול הביקורתי הכי משפיע עלייך כרגע</li>
-            <li>מה את רוצה לשנות או לקדם בתקופה הקרובה</li>
-            <li>האם ליווי אישי יכול להתאים לך בשלב הזה</li>
-          </ul>
         </section>
 
         <p class="closing">
-          זו שיחת התאמה קצרה שנועדה לדייק עבורך את הצעד הבא.
+          את לא צריכה לוותר על השאיפות שלך כדי להיות ברכות. אפשר גם וגם.
         </p>
       </section>
     </main>
@@ -221,7 +367,7 @@
       const iframeTarget = document.querySelector('iframe[name="hidden_iframe"]');
       let isSubmitting = false;
 
-      form.addEventListener("submit", (event) => {
+      form.addEventListener("submit", () => {
         if (!form.checkValidity()) {
           return;
         }
