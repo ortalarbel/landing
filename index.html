@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>אורטל ארבל | להפוך את הקול הביקורתי לקול שמקדם אותך</title>
+    <title>ממרדף וממאבק לחיבור וחופש פנימי</title>
     <style>
       :root {
-        --bg: #f9f6f2;
-        --card: #ffffff;
-        --text: #2f2f33;
-        --muted: #6f6b69;
-        --accent: #4e7a68;
-        --accent-hover: #3f6656;
-        --soft: #fdf8ef;
-        --border: #e8ddd0;
-        --blush: #f7ede6;
+        --bg: #f8f3ee;
+        --card: #fffdf9;
+        --text: #2f2c2a;
+        --muted: #6e6662;
+        --accent: #4f7b69;
+        --accent-hover: #3f6556;
+        --line: #e9ddd1;
+        --soft: #fdf6ef;
       }
 
       * {
@@ -25,78 +24,143 @@
         margin: 0;
         font-family: "Heebo", Arial, sans-serif;
         color: var(--text);
-        line-height: 1.75;
-        background: linear-gradient(180deg, #f4ebdf 0%, var(--bg) 240px);
+        background: radial-gradient(circle at 12% 10%, #f3e5d7 0, transparent 36%),
+          radial-gradient(circle at 86% 14%, #e7efe9 0, transparent 34%), var(--bg);
+        line-height: 1.7;
       }
 
       .container {
-        max-width: 980px;
-        margin: 28px auto;
-        padding: 0 18px 32px;
+        max-width: 900px;
+        margin: 26px auto;
+        padding: 0 16px 36px;
       }
 
       .card {
+        position: relative;
+        overflow: hidden;
         background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 14px 32px rgba(62, 44, 25, 0.08);
         padding: clamp(20px, 4vw, 40px);
-        box-shadow: 0 10px 28px rgba(73, 60, 42, 0.08);
+      }
+
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .card::before {
+        width: 240px;
+        height: 240px;
+        inset-inline-start: -110px;
+        top: -120px;
+        background: rgba(79, 123, 105, 0.08);
+      }
+
+      .card::after {
+        width: 180px;
+        height: 180px;
+        inset-inline-end: -90px;
+        bottom: -90px;
+        background: rgba(213, 177, 143, 0.16);
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
       }
 
       h1,
       h2,
       h3,
       p {
-        margin: 0 0 14px;
+        margin: 0 0 10px;
       }
 
       h1 {
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        line-height: 1.3;
+        font-size: clamp(1.65rem, 4vw, 2.45rem);
+        line-height: 1.35;
       }
 
       h2 {
-        font-size: clamp(1.35rem, 3vw, 1.75rem);
+        font-size: clamp(1.2rem, 3vw, 1.65rem);
         margin-top: 10px;
       }
 
-      h3 {
-        font-size: 1.1rem;
+      .hero {
+        text-align: center;
+        border-bottom: 1px dashed var(--line);
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--soft);
+        padding: 7px 14px;
+        margin-bottom: 12px;
+        font-size: 0.93rem;
+      }
+
+      .strong {
+        font-weight: 800;
+      }
+
+      .section {
+        margin-top: 24px;
+      }
+
+      .lines p {
+        margin-bottom: 3px;
+      }
+
+      .divider {
+        margin: 18px 0;
+        height: 1px;
+        border: 0;
+        background: linear-gradient(90deg, transparent, var(--line), transparent);
+      }
+
+      .box {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 14px 16px;
+        margin-top: 14px;
+      }
+
+      ul {
+        margin: 0;
+        padding-inline-start: 22px;
+      }
+
+      li {
+        margin-bottom: 6px;
       }
 
       .muted {
         color: var(--muted);
       }
 
-      .hero {
+      .cta-wrap {
         text-align: center;
-        padding-bottom: 24px;
-        border-bottom: 1px dashed var(--border);
-      }
-
-      .hero-badge {
-        display: inline-block;
-        background: var(--soft);
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        padding: 8px 14px;
-        margin-bottom: 14px;
-        font-size: 0.95rem;
-      }
-
-      .hero p {
-        max-width: 700px;
-        margin: 0 auto 16px;
+        margin-top: 14px;
       }
 
       .hero-cta {
         display: inline-block;
-        padding: 12px 20px;
-        border-radius: 999px;
         text-decoration: none;
         background: var(--accent);
         color: #fff;
+        border-radius: 999px;
         font-weight: 700;
+        padding: 12px 24px;
         transition: background 0.2s;
       }
 
@@ -104,86 +168,40 @@
         background: var(--accent-hover);
       }
 
-      .section {
-        margin-top: 28px;
-      }
-
-      .grid {
-        display: grid;
-        gap: 14px;
-      }
-
-      .grid-2 {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      }
-
-      .box {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 16px;
-      }
-
-      .box.soft {
-        background: var(--soft);
-      }
-
-      .box.blush {
-        background: var(--blush);
-      }
-
-      ul {
-        margin: 0;
-        padding-inline-start: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .about {
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        background: #fffdfa;
-        padding: 16px;
-      }
-
       form {
         display: grid;
         gap: 12px;
-        margin-top: 14px;
+        margin-top: 12px;
       }
 
       label {
         display: block;
         font-weight: 600;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
       }
 
       input {
         width: 100%;
-        padding: 12px 14px;
-        border-radius: 10px;
-        border: 1px solid #d4cec6;
+        border: 1px solid #d8ccc0;
+        border-radius: 12px;
+        padding: 12px 13px;
         font-size: 1rem;
-        background: #fff;
       }
 
       input:focus {
-        outline: 2px solid rgba(78, 122, 104, 0.25);
+        outline: 2px solid rgba(79, 123, 105, 0.22);
         border-color: var(--accent);
       }
 
       button {
         border: 0;
-        border-radius: 10px;
+        border-radius: 999px;
+        padding: 13px 16px;
         background: var(--accent);
         color: #fff;
         font-size: 1rem;
         font-weight: 700;
-        padding: 13px 16px;
         cursor: pointer;
-        transition: background 0.2s;
       }
 
       button:hover {
@@ -192,172 +210,206 @@
 
       .thank-you {
         display: none;
-        margin-top: 12px;
-        padding: 12px 14px;
-        border-radius: 10px;
-        background: #ecf7ef;
-        border: 1px solid #cde6d4;
-        color: #1f5e39;
-        font-weight: 500;
-      }
-
-      .closing {
-        margin-top: 22px;
-        text-align: center;
-        font-weight: 500;
+        margin-top: 10px;
+        background: #edf7f0;
+        border: 1px solid #cde3d2;
+        border-radius: 12px;
+        padding: 10px 12px;
       }
     </style>
   </head>
   <body>
     <main class="container">
       <section class="card">
-        <header class="hero">
-          <span class="hero-badge">דף נחיתה לקורס הדיגיטלי של אורטל ארבל</span>
-          <h1>הקול הביקורתי לא חייב לנהל אותך.<br />אפשר להפוך אותו לקול שמחזיק אותך ברכות.</h1>
-          <p>
-            אם את יוצרת או יזמית שמרגישה שהפרפקציוניזם, הספק והביקורת הפנימית
-            שואבים ממך אנרגיה — הקורס הזה נבנה בדיוק בשבילך.
-          </p>
-          <p class="muted">
-            כאן לא עובדות עם לחץ והפחדה. כאן לומדות לנוע בקצב נכון, להתחבר לעצמך,
-            וליצור מתוך חום, אמפתיה וביטחון.
-          </p>
-          <a href="#join" class="hero-cta">אני רוצה פרטים על ההרשמה לקורס</a>
-        </header>
+        <div class="content">
+          <header class="hero">
+            <span class="hero-badge">קורס לנשים עצמאיות • תהליך קבוצתי אינטימי</span>
+            <h1 class="strong">מכירה את זה שאת קמה בבוקר עם תחושת לחץ?</h1>
+          </header>
 
-        <section class="section">
-          <h2>מה קורה לרבות מאיתנו היום?</h2>
-          <div class="grid grid-2">
-            <article class="box">
-              <h3>עומס פנימי שמתיש</h3>
-              <ul>
-                <li>הרבה סטרס והשקעת יתר מתוך רצון שהכול יהיה "מושלם".</li>
-                <li>חוסר איזון בין עבודה, פנאי וחיים אישיים.</li>
-                <li>תחושת עייפות שמגיעה גם כשעובדות קשה מאוד.</li>
-              </ul>
-            </article>
-            <article class="box">
-              <h3>הימנעות או עשיית יתר</h3>
-              <ul>
-                <li>דחיינות והימנעות מחשש שזה "לא מספיק טוב".</li>
-                <li>חוסר ודאות לגבי איכות המוצר או היצירה.</li>
-                <li>קושי להתמיד לאורך זמן בדרך מיטיבה.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
+          <section class="section lines">
+            <p>יש בתוכך קול שאומר</p>
+            <p>“יאללה, שבי כבר על המשימות שלך”</p>
+            <p>אבל משהו בתוכך…</p>
+            <p>לא ממש רוצה</p>
+            <p>אין חשק</p>
+            <p>אין השראה</p>
+            <p>יש בעיקר</p>
+            <p>לחץ פנימי להתקדם</p>
+            <p>לתקתק</p>
+            <p>לעשות</p>
+            <p>ואת מוצאת את עצמך נמנעת</p>
+            <p>או דוחפת את עצמך בכוח</p>
+            <p>עד שאת כבר מותשת</p>
+          </section>
 
-        <section class="section">
-          <h2>ומה אנחנו יוצרות יחד בקורס?</h2>
-          <div class="grid grid-2">
-            <article class="box soft">
-              <h3>חיבור פנימי חדש</h3>
-              <ul>
-                <li>לזהות את הקול הביקורתי ולא להתבלבל בינו לבינך.</li>
-                <li>לבנות שיח פנימי רך, מכבד ומעודד.</li>
-                <li>לחזק תחושת ראויות ואמון בעצמך כיוצרת וכיזמית.</li>
-              </ul>
-            </article>
-            <article class="box soft">
-              <h3>עשייה אותנטית ויציבה</h3>
-              <ul>
-                <li>לעשות צעדים אמיצים בלי נוקשות עצמית.</li>
-                <li>לפעול מתוך מה שנכון לך — לא מתוך "מה צריך".</li>
-                <li>להפוך יצירה ועשייה למרחב שאפשר ליהנות בו.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
+          <hr class="divider" />
 
-        <section class="section">
-          <h2>מה כולל המסלול איתי?</h2>
-          <div class="grid">
-            <article class="box blush">
-              <h3>שלב פרונט – כניסה רכה לתהליך</h3>
-              <ul>
-                <li>מדריך מתנה: 6 טיפים לעשייה שמקדמת אותך בהנאה.</li>
-                <li>אתגר וואטסאפ 4 ימים לפיתוח מודעות לקול הביקורתי.</li>
-                <li>וובינר העמקה: להבין את הקול, המחירים והרווחים שלו.</li>
-              </ul>
-            </article>
-            <article class="box">
-              <h3>מוצר ליבה – סדנה תהליכית (6–8 מפגשים)</h3>
-              <ul>
-                <li>עבודה עומק על מודעות, אותנטיות וחיבור לצרכים שלך.</li>
-                <li>תרגול מעשי לחיזוק קול בוגר אוהב לצד הקול הביקורתי.</li>
-                <li>קבוצת וואטסאפ לשיתופים, שאלות וחיזוקים.</li>
-                <li>בונוס לנרשמות הראשונות: פגישת 1:1 אישית איתי.</li>
-              </ul>
-            </article>
-            <article class="box">
-              <h3>ליווי פרימיום אישי</h3>
-              <ul>
-                <li>15 מפגשים אישיים – 5,250 ₪</li>
-                <li>5 מפגשים אישיים – 2,250 ₪</li>
-                <li>מפגש בודד (90 דק') – 600 ₪</li>
-              </ul>
-            </article>
-          </div>
-        </section>
+          <section class="section lines">
+            <p>אני מכירה את המקום הזה מקרוב</p>
+            <p>גם מעצמי</p>
+            <p>וגם מנשים רבות שליוויתי</p>
+            <p>אותן תחושות של לחץ</p>
+            <p>להתקדם</p>
+            <p>להיות יעילה יותר</p>
+            <p>לעשות יותר</p>
+            <p>לא מגיעות סתם</p>
+            <p>הן מגיעות מהקול הביקורתי שבתוכך</p>
+            <p>החלק הזה</p>
+            <p>שדוחק בך קדימה</p>
+            <p>גם כשאין לך כבר כוח</p>
+          </section>
 
-        <section class="section">
-          <h2>קצת עליי</h2>
-          <div class="about">
-            <p>
-              אני אורטל ארבל, מאמנת להתפתחות אישית. שנים התנהלתי מתוך קול ביקורתי
-              חזק שניסה "לשמור עליי" אבל בפועל הרחיק אותי ממה שבאמת נכון לי.
-            </p>
-            <p>
-              מתוך הדרך האישית שלי — שכוללת בחירות אמיצות, יציאה ממסגרות שלא התאימו
-              לי, ופיתוח יכולת עמוקה לסמוך על עצמי — בניתי שיטה שמשלבת עבודה רגשית
-              פנימית עם כלים מעשיים לחיי היומיום.
-            </p>
-            <p class="muted">
-              הכשרות: אימון הוליסטי (רידמן), NLP-גשטאלט (גומא גבים), קונסטלציה
-              משפחתית, תואר ראשון בחינוך והוראת אמנות, ולימודי שמאניזם ורפואה קדומה.
-            </p>
-          </div>
-        </section>
+          <section class="section box lines">
+            <p>את רוצה לקדם את העשייה שלך</p>
+            <p>את העסק שלך</p>
+            <p>את מה שיש לך להביא לעולם</p>
+            <p>אבל בפועל—</p>
+            <ul>
+              <li>את דוחה משימות כי את לא בטוחה שאת מספיק טובה.</li>
+              <li>לא מספיק מקצועית, לא מספיק מוכשרת, לא בטוחה שיש לך בכלל מה לתת.</li>
+              <li>או להפך — את נכנסת למוד של עשייה, אבל זה מגיע עם מחיר.</li>
+              <li>מרדף, סטרס גבוה, עייפות, ודחיפה בלתי פוסקת.</li>
+              <li>הנאה שהולכת לאיבוד, ואיזון שנעלם.</li>
+            </ul>
+          </section>
 
-        <section class="section" id="join">
-          <h2>רוצה לבדוק אם הקורס מתאים לך?</h2>
-          <p>
-            השאירי כאן פרטים ואחזור אלייך לשיחת התאמה אישית, נעימה וללא התחייבות.
-          </p>
+          <section class="section lines">
+            <p>ובפנים יש שיח שלא מפסיק</p>
+            <p>“לא עשית מספיק”</p>
+            <p>“את איטית מדי”</p>
+            <p>“תראי איפה אחרות ואיפה את”</p>
+            <p>ובעיקר—</p>
+            <p>את לא מוציאה את עצמך החוצה</p>
+            <p>לא את החלום שלך</p>
+            <p>לא את הקול שלך</p>
+            <p>לא את מה שבאמת ייחודי בך</p>
+          </section>
 
-          <form
-            id="leadForm"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSfY1roD4gB0LbPzZKAZLtl6LDsy78jkyHnvf-i16n9mEIGEZw/formResponse"
-            method="POST"
-            target="hidden_iframe"
-          >
-            <div>
-              <label for="fullName">שם מלא</label>
-              <input id="fullName" name="entry.2022435461" type="text" required />
+          <section class="section box lines">
+            <h2 class="strong">אבל תקשיבי זה לא חייב להיות ככה</h2>
+            <p>הקול הביקורתי שלך לא נועד לעצור אותך</p>
+            <p>הוא פשוט השתלט קצת יותר מדי</p>
+            <p>והתחיל לנהל אותך בצורה שכבר לא משרתת אותך</p>
+            <p>וכן, אני מבטיחה לך — אפשר לעבוד איתו אחרת</p>
+            <p>אפשר ללמוד לנהל אותו כך שיעבוד בשבילך</p>
+            <p>שיעזור לדייק ולשפר את העשייה שלך</p>
+            <p>שישים לב לדקויות שירימו אותך — לא יורידו אותך</p>
+            <p>שיראה את התמונה המלאה ולא רק את מה שחסר</p>
+          </section>
+
+          <section class="section lines">
+            <p>שתוכלי להיות מצוינת במה שאת עושה</p>
+            <p>אבל בלי להקטין את עצמך בדרך</p>
+            <p>בלי לעצור</p>
+            <p>בלי להיכנס לחשש ש"זה לא מספיק"</p>
+            <p>אלא ממקום אחר לגמרי:</p>
+            <ul>
+              <li>הנאה מהעשייה.</li>
+              <li>התרגשות ליצור משהו חדש.</li>
+              <li>ביטוי אמיתי של מי שאת.</li>
+              <li>תחושת מלאות כי את מביאה את עצמך לעולם.</li>
+            </ul>
+          </section>
+
+          <section class="section lines">
+            <p>אם את מרגישה שאת מוכנה לעשות את המעבר הזה—</p>
+            <p>אני רוצה להזמין אותך להצטרף לקורס</p>
+            <h2>“ממרדף וממאבק לחיבור וחופש פנימי”</h2>
+          </section>
+
+          <section class="section box">
+            <h2>אז מה בעצם משתנה עבורך בתוך התהליך?</h2>
+            <ul>
+              <li>את מתחילה ליצור ולפעול מתוך חיבור לעצמך — לא מתוך לחץ ולא מתוך מאבק.</li>
+              <li>יש תנועה והתמדה, בלי עצירות חדות ובלי נסיגות שמורידות אותך אחורה.</li>
+              <li>העשייה נהיית קלילה יותר: פחות כבד, פחות מלחיץ, יותר מקום להנאה ולסקרנות.</li>
+              <li>את מפסיקה להילחם בעצמך ומתחילה לעבוד עם מי שאת, גם כשהדרך משתנה.</li>
+              <li>את לומדת לסמוך על עצמך, להביא את הקול והרעיונות שלך החוצה, עם יותר ביטחון ושקט פנימי.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>איך זה קורה בפועל?</h2>
+            <div class="box">
+              <ul>
+                <li><strong>מפגש 1 — לזהות שזה לא את:</strong> לזהות את הקול הביקורתי בזמן אמת וליצור נפרדות ממנו.</li>
+                <li><strong>מפגש 2 — לשחרר כדי לזוז קדימה:</strong> להבין מה כבר לא משרת אותך וליצור תנועה חדשה מותאמת לך.</li>
+                <li><strong>מפגש 3 — להפסיק להילחם בעצמך:</strong> לתקשר עם הקול הביקורתי ולעבוד איתו במקום נגדו.</li>
+                <li><strong>מפגש 4 — לפתח שיח פנימי חדש:</strong> לעבור לקול פנימי רך, תומך ומקדם.</li>
+                <li><strong>מפגש 5 — לפעול מתוך תחושת ראויות:</strong> לחזק ערך עצמי ולפעול בעולם עם יותר ביטחון.</li>
+                <li><strong>מפגש 6 — לחזק ולהמשיך קדימה:</strong> לחבר את כל מה שלמדת ולצאת עם כיוון ברור להמשך.</li>
+              </ul>
             </div>
+          </section>
 
-            <div>
-              <label for="phone">טלפון</label>
-              <input id="phone" name="entry.802263331" type="tel" required />
+          <section class="section box lines">
+            <h2>התוכנית כוללת:</h2>
+            <ul>
+              <li>6 מפגשים קבוצתיים (שעה ורבע כל מפגש).</li>
+              <li>תהליך הדרגתי ומובנה עם תרגול אמיתי ושינוי דפוסים.</li>
+              <li>ליווי שמאפשר לך לא להישאר לבד בתוך זה.</li>
+            </ul>
+            <p>🎁 ובונוס: פגישה אישית איתי (שעה) בסיום התהליך.</p>
+            <p>כדי לדייק, לעבד, ולקחת את זה צעד קדימה לחיים שלך בפועל.</p>
+          </section>
+
+          <section class="section box lines">
+            <h2>✨ ההשקעה שלך</h2>
+            <p>כל זה — במחיר פיילוט של:</p>
+            <p><strong>570 ש"ח בלבד</strong></p>
+            <p class="muted">זה לא המחיר הרגיל, וזה גם לא משהו שיחזור על עצמו.</p>
+            <p>מדובר בקבוצת פיילוט קטנה ואינטימית של 5 נשים בלבד.</p>
+            <p>בהמשך, כשהתוכנית תתבסס ותתרחב — המחיר יהיה שונה לגמרי.</p>
+          </section>
+
+          <section class="section lines">
+            <h2 class="strong">למי זה מתאים</h2>
+            <p>אם את מרגישה שמה שקראת כאן נוגע בך,</p>
+            <p>אם את מזהה את עצמך במקום של מאבק, שחיקה או תקיעות,</p>
+            <p>ואת רוצה להתחיל לנוע אחרת —</p>
+            <p>לאט, אבל בטוח.</p>
+            <p>עם יותר שקט, יותר חיבור, ויותר אמון בעצמך.</p>
+          </section>
+
+          <section class="section" id="join">
+            <h2>✨ אני מזמינה אותך להצטרף אליי לתהליך הזה</h2>
+            <p>השאירי כאן פרטים ואחזור אלייך אישית.</p>
+
+            <form
+              id="leadForm"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSfY1roD4gB0LbPzZKAZLtl6LDsy78jkyHnvf-i16n9mEIGEZw/formResponse"
+              method="POST"
+              target="hidden_iframe"
+            >
+              <div>
+                <label for="fullName">שם מלא</label>
+                <input id="fullName" name="entry.2022435461" type="text" required />
+              </div>
+
+              <div>
+                <label for="phone">טלפון</label>
+                <input id="phone" name="entry.802263331" type="tel" required />
+              </div>
+
+              <div>
+                <label for="email">מייל</label>
+                <input id="email" name="entry.131890125" type="email" required />
+              </div>
+
+              <button type="submit">תרשמי אותי</button>
+            </form>
+
+            <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
+              תודה אהובה 💚 קיבלתי את הפרטים שלך ואצור איתך קשר בקרוב.
+            </p>
+            <iframe name="hidden_iframe" style="display: none" title="hidden-form-target"></iframe>
+
+            <div class="cta-wrap">
+              <a href="#join" class="hero-cta">תרשמי אותי</a>
             </div>
-
-            <div>
-              <label for="email">מייל</label>
-              <input id="email" name="entry.131890125" type="email" required />
-            </div>
-
-            <button type="submit">כן, אני רוצה פרטים על הקורס</button>
-          </form>
-
-          <p id="thankYouMessage" class="thank-you" role="status" aria-live="polite">
-            תודה אהובה 💚 קיבלתי את הפרטים שלך ואצור איתך קשר בקרוב.
-          </p>
-          <iframe name="hidden_iframe" style="display: none" title="hidden-form-target"></iframe>
-        </section>
-
-        <p class="closing">
-          את לא צריכה לוותר על השאיפות שלך כדי להיות ברכות. אפשר גם וגם.
-        </p>
+          </section>
+        </div>
       </section>
     </main>
 
