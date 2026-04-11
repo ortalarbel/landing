@@ -72,6 +72,7 @@
       .content {
         position: relative;
         z-index: 1;
+        text-align: center;
       }
 
       h1,
@@ -79,6 +80,8 @@
       h3,
       p {
         margin: 0 0 10px;
+        max-width: 28ch;
+        margin-inline: auto;
       }
 
       h1 {
@@ -136,12 +139,17 @@
       }
 
       ul {
-        margin: 0;
-        padding-inline-start: 22px;
+        margin: 0 auto;
+        padding-inline-start: 0;
+        list-style-position: inside;
+        text-align: center;
+        max-width: 34ch;
       }
 
       li {
         margin-bottom: 6px;
+        max-width: 34ch;
+        margin-inline: auto;
       }
 
       .muted {
@@ -178,6 +186,7 @@
         display: block;
         font-weight: 600;
         margin-bottom: 4px;
+        text-align: center;
       }
 
       input {
@@ -186,6 +195,7 @@
         border-radius: 12px;
         padding: 12px 13px;
         font-size: 1rem;
+        text-align: center;
       }
 
       input:focus {
@@ -202,6 +212,7 @@
         font-size: 1rem;
         font-weight: 700;
         cursor: pointer;
+        margin-inline: auto;
       }
 
       button:hover {
